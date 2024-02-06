@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# Dog Groomer Booking Application
+This project is the Website front-end React.js application for the Dog Groomer Booking Application.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is intended to be written in Typescript, being hosted on AWS in an S3 bucket.
+
 
 ## Available Scripts
 
