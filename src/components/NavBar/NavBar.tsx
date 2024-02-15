@@ -3,17 +3,30 @@ import PetsIcon from '@mui/icons-material/Pets';
 import MenuIcon from '@mui/icons-material/Menu';
 import React from 'react'
 
-type Props = {}
+type Props = {
+  userRole: string
+}
 
 //Pages that will be seen in the hamburger icon
 //TODO: Figure out a way to change pages depending on login state
-const pages = ['Home', 'Vendors' , 'Pets', 'About'];
+const pages = [
+{ name: 'Home', roles: ['Admin', 'Vendor', 'Customer', 'User'] },
+{ name: 'Marketplace', roles: ['Admin', 'Vendor', 'Customer', 'User'] },
+{ name: 'Your Business', roles: ['Vendor'] },
+{ name: 'Orders', roles: ['Vendor', 'Customer'] },
 
-//Pages seen in the User Icon
+];
+
 //TODO: Give a gray icon when logged out, but a user profile pic when logged in
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout']
+//Pages seen in the User Icon
+const settings = [
+  { name: 'Login', roles: ['User'] },
+  { name: 'Profile', roles: ['Vendor', 'Customer'] },
+  { name: 'Pets', roles: ['Customer'] },
+  { name: 'Logout', roles: ['Customer', 'Admin', 'Vendor'] },
+];
 
-const NavBar = () => {
+const NavBar = (props: Props) => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
@@ -31,6 +44,10 @@ const NavBar = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+  const accessiblePages = pages.filter(page => page.roles.includes(props.userRole));
+  const accessibleSettings = settings.filter(setting => setting.roles.includes(props.userRole));
+
 
   return (
     <div className='NavBar'>
@@ -83,22 +100,22 @@ const NavBar = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+              {accessiblePages.map((page) => (
+                <MenuItem key={page.name} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">{page.name}</Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
           <PetsIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
+            {accessiblePages.map((page) => (
               <Button
-                key={page}
+                key={page.name}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+                {page.name}
               </Button>
             ))}
           </Box>
@@ -125,9 +142,9 @@ const NavBar = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+              {accessibleSettings.map((setting) => (
+                <MenuItem key={setting.name} onClick={handleCloseUserMenu}>
+                  <Typography textAlign="center">{setting.name}</Typography>
                 </MenuItem>
               ))}
             </Menu>

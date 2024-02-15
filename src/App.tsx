@@ -11,9 +11,10 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
 const App = () =>{
+  const userRole = "User"
   return (
     <div className="App">
-      <NavBar/>
+      <NavBar userRole={userRole} />
       <Header/>
       <Home/>
     </div>
