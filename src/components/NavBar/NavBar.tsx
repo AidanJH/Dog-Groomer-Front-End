@@ -2,19 +2,20 @@ import { AppBar, Container, Toolbar, Typography, IconButton, Menu, Box, MenuItem
 import PetsIcon from '@mui/icons-material/Pets';
 import MenuIcon from '@mui/icons-material/Menu';
 import React from 'react'
+import { Link } from 'react-router-dom';
 
+//TODO: Add full user data in when doing Auth
 type Props = {
   userRole: string
 }
 
 //Pages that will be seen in the hamburger icon
-//TODO: Figure out a way to change pages depending on login state
+
 const pages = [
 { name: 'Home', roles: ['Admin', 'Vendor', 'Customer', 'User'] },
 { name: 'Marketplace', roles: ['Admin', 'Vendor', 'Customer', 'User'] },
 { name: 'Your Business', roles: ['Vendor'] },
 { name: 'Orders', roles: ['Vendor', 'Customer'] },
-
 ];
 
 //TODO: Give a gray icon when logged out, but a user profile pic when logged in
@@ -51,26 +52,10 @@ const NavBar = (props: Props) => {
 
   return (
     <div className='NavBar'>
-      <AppBar position = "static">
+      <AppBar position = "static" color="inherit" variant='outlined' >
         <Container maxWidth = {false}>
           <Toolbar disableGutters>
-          <PetsIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            sx={{
-              mr: 5,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 600,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            Home
-          </Typography>
+          <PetsIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 3 }} />
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -101,22 +86,26 @@ const NavBar = (props: Props) => {
               }}
             >
               {accessiblePages.map((page) => (
-                <MenuItem key={page.name} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page.name}</Typography>
-                </MenuItem>
+                <Link to = {page.name} key={page.name}>
+                  <MenuItem onClick={handleCloseNavMenu}>
+                    <Typography textAlign="center">{page.name}</Typography>
+                  </MenuItem>
+                </Link>
               ))}
             </Menu>
           </Box>
           <PetsIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}></Box>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {accessiblePages.map((page) => (
-              <Button
-                key={page.name}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page.name}
-              </Button>
+              <Link to = {page.name} key={page.name}>
+                <Button
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: 'black', display: 'block' }}
+                >
+                  {page.name}
+                </Button>
+              </Link>
             ))}
           </Box>
 

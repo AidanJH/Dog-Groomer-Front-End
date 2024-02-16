@@ -2,7 +2,8 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {NavBar, Header} from './components'
-import { Home } from './pages';
+import { Home, Marketplace } from './pages';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 
 import '@fontsource/roboto/300.css';
@@ -13,11 +14,17 @@ import '@fontsource/roboto/700.css';
 const App = () =>{
   const userRole = "User"
   return (
-    <div className="App">
+    <>
       <NavBar userRole={userRole} />
       <Header/>
-      <Home/>
-    </div>
+
+
+      <Routes>
+        <Route path="/home" element={<Home/>}/>
+        <Route path="/marketplace" element={<Marketplace/>}/>
+
+      </Routes>
+    </>
   );
 }
 

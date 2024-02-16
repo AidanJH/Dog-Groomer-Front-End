@@ -6,16 +6,16 @@ type Props = {}
 
 
 
-const Header = () => {
+const SignInForm = () => {
 
 useEffect(() => {}, []);
 
 
   return (
-    <div className='Header'>
+    <div className='SignInForm'>
 
     </div>
   );
 }
 
-export default Header
+export default SignInForm
