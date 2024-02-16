@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {NavBar, Header} from './components'
+import { NavBar, Header } from './components'
 import { Home, Marketplace } from './pages';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
