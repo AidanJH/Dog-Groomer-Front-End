@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Typography } from '@mui/material';
+import { Box, Button, Card, Typography } from '@mui/material';
 import { COLOURS } from '../../styles/colours';
 
 
@@ -12,13 +12,11 @@ const Home = () => {
     sx={{
       display: 'flex',
       flexDirection: 'row',
-      // justifyContent: 'center',
-      // alignItems: 'center',
       height: {sm:'30vh', md: '40vh', xl: '70vh'},
       backgroundImage: `url(${imageUrl})`,
-      backgroundSize: { sm: 'cover', md: 'cover', xl: 'cover' }, 
-      backgroundRepeat: { xl: 'no-repeat' },
-      backgroundPosition: {sm:'center', md: 'center', xl: 'center'}, 
+      backgroundSize: {xs:'cover' ,sm: 'cover', md: 'cover', xl: 'cover' }, 
+      backgroundRepeat: {xs: 'no-repeat', xl: 'no-repeat' },
+      backgroundPosition: {xs:'center',sm:'center', md: 'center', xl: 'center'}, 
     }}
     >
 
@@ -31,9 +29,10 @@ const Home = () => {
 
           }}>
 
-        <Typography
+        <Typography m={4} 
         sx={{
-          fontSize: 110,
+          lineHeight: 1.1,
+          fontSize: {xs:'cover' ,sm: 'cover', md: 'cover', xl: 110 }, 
           fontWeight: 'heavy',
           backgroundcolor: "primary",
           backgroundImage: `linear-gradient(100deg, ${COLOURS.slogan_text}, ${COLOURS.white})`,
@@ -52,11 +51,24 @@ const Home = () => {
           <Box flex={1}
           sx={{
             display: 'flex',
-            flexDirection: 'column',
+            flexDirection: 'row',
             border: '2px solid red',
-            width: '50%'
+            width: '50%',
+            justifyContent: 'center',
+            alignItems: 'end'
           }}>
 
+            <Button>Groomers</Button>
+            <Button>Vets</Button>
+            <Button>Doggy Daycares</Button>
+
+            <Card
+            sx={{
+              border: '2px solid red'
+            }}>
+              
+              
+            </Card>
           </Box>
 
           <Box flex={1}
@@ -74,7 +86,7 @@ const Home = () => {
           fontSize: 80,
           fontWeight: 'heavy',
           backgroundcolor: "primary",
-          backgroundImage: `linear-gradient(100deg, ${COLOURS.slogan_text}, ${COLOURS.white})`,
+          backgroundImage: `linear-gradient(160deg, ${COLOURS.slogan_text}, ${COLOURS.white})`,
           backgroundSize: "100%",
           backgroundRepeat: "repeat",
           backgroundClip: "text",
