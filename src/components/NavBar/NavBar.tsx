@@ -4,6 +4,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 import React from 'react'
 import { Link } from 'react-router-dom';
 
+import pawIcon from '../../assets/images/logo/paw-icon.png';
+
 //TODO: Add full user data in when doing Auth
 type Props = {
   userRole: string
@@ -52,7 +54,7 @@ const NavBar = (props: Props) => {
 
   return (
     <div className='NavBar'>
-      <AppBar position = "static" color="inherit" variant='outlined' >
+      <AppBar position = "static" color="inherit" elevation={1} >
         <Container maxWidth = {false}>
           <Toolbar disableGutters>
           <PetsIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 3 }} />
@@ -112,7 +114,7 @@ const NavBar = (props: Props) => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Not Signed In" src="../../assets/images/logo/paw-icon.png" />
+                <Avatar alt="Not Signed In" src={pawIcon} />
               </IconButton>
             </Tooltip>
             <Menu
