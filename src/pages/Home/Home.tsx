@@ -1,10 +1,11 @@
 import React from 'react'
 import { Box, Typography } from '@mui/material';
-
+import { COLOURS } from '../../styles/colours';
 
 
 const Home = () => {
   const imageUrl = 'https://dg-open-photos.s3.ap-southeast-2.amazonaws.com/dog-toothbrush.jpg';
+  
   return (
     <>
     <Box
@@ -35,7 +36,7 @@ const Home = () => {
           fontSize: 110,
           fontWeight: 'heavy',
           backgroundcolor: "primary",
-          backgroundImage: `linear-gradient(45deg, #5514B4, #FFFFFF)`,
+          backgroundImage: `linear-gradient(100deg, ${COLOURS.slogan_text}, ${COLOURS.white})`,
           backgroundSize: "100%",
           backgroundRepeat: "repeat",
           backgroundClip: "text",
@@ -73,7 +74,7 @@ const Home = () => {
           fontSize: 80,
           fontWeight: 'heavy',
           backgroundcolor: "primary",
-          backgroundImage: `linear-gradient(45deg, #5514B4, #FFFFFF)`,
+          backgroundImage: `linear-gradient(100deg, ${COLOURS.slogan_text}, ${COLOURS.white})`,
           backgroundSize: "100%",
           backgroundRepeat: "repeat",
           backgroundClip: "text",
