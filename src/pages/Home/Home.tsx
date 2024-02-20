@@ -11,6 +11,7 @@ const Home = () => {
     <>
     <Box
     sx={{
+      position: 'relative',
       display: 'flex',
       flexDirection: 'row',
       height: {sm:'30vh', md: '40vh', xl: '70vh'},
@@ -39,7 +40,7 @@ const Home = () => {
           backgroundClip: "text",
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",
-          border: '2px solid red'
+          //border: '2px solid red'
         }}>
           Bookings for your furry friend
         </Typography>
@@ -48,24 +49,25 @@ const Home = () => {
       <Grid item xs={4} sx={{
           display: 'flex',
           flexDirection: 'column',
-          border: '2px solid red',
+          //border: '2px solid red',
           width: '50%',
           justifyContent: 'end',
           alignItems: 'left'
       }}>
-        <SearchBar></SearchBar>
       </Grid>
 
       <Grid item xs={4}
         sx={{
           display: 'flex',
           flexDirection: 'row',
-          border: '2px solid red',
+          //border: '2px solid red',
           width: '20%',
           justifyContent: 'center',
-          alignItems: 'end'
+          alignItems: 'end',
+          
+          
           }}>
-      <Typography
+      <Typography m={12} 
         sx={{
           fontSize: {xs: fontSizes.xs, sm: fontSizes.s, md: fontSizes.m, xl: fontSizes.xl },
           fontWeight: 'heavy',
@@ -76,15 +78,26 @@ const Home = () => {
           backgroundClip: "text",
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",
-          border: '2px solid red'
+          textAlign: 'right',
+          // border: "2px solid red"
         }}>
          made easy
         </Typography>
       </Grid>
     </Grid>
+        
+
+    <SearchBar></SearchBar>
+      </Box>
+      <Box 
+      sx={{
+        justifyContent: "end",
+        alignItems: 'end',
+        //border: '2px solid red'
+
+      }}>
 
       </Box>
-
 
     </>
   );
