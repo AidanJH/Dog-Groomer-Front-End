@@ -1,4 +1,4 @@
-export const COLOURS = {
+const colours = {
     slogan_text: "#50463F",
     slogan_secondary_gradient: "#68797A",
     complimentary_brown: "#A58671",
@@ -7,3 +7,4 @@ export const COLOURS = {
     white: "#FFFFFF"
   };
   
+  export default colours;
