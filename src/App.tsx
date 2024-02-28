@@ -1,7 +1,7 @@
 import React from 'react';
 //import logo from './logo.svg';
 import './App.css';
-import { NavBar, Header } from './components'
+import { NavBar } from './components'
 import { Home, Marketplace } from './pages';
 import { Route, Routes } from "react-router-dom";
 
@@ -17,7 +17,7 @@ const App = () =>{
   return (
     <>
       <NavBar userRole={userRole} />
-      <Header/>
+
 
       <Routes>
         <Route path="/" element={<Home/>}/>

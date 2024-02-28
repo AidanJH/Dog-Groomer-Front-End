@@ -1,10 +1,12 @@
 import React from 'react'
-import { Box, Button, Paper, Typography, TextField } from '@mui/material';
+import { Box, Button, Paper, Typography, TextField, IconButton, InputAdornment } from '@mui/material';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
-
+import { ThemeProvider } from '@mui/material/styles';
+import { buttonTheme } from '../../styles/theme';
+import SearchIcon from '@mui/icons-material/Search';
 
 const SearchBar = () => {
     //TODO: Need a function to input search
@@ -17,24 +19,16 @@ const SearchBar = () => {
 
     return(
         <>
-            <Box
-            sx={{
-
-            }}>
-                <Button>Groomers</Button>
-                <Button>Vets</Button>
-                <Button>Doggy Daycares</Button>
-            </Box>
-
+       
             <Box sx={{
-              position: 'absolute', // Positioned absolutely
-              bottom: 0, // At the bottom of the parent Box
-              left: 0, // Aligned to the left
-              right: 0, // Aligned to the right
-              width: '100%', // Take up 100% of the parent width
-              display: 'flex',
-              justifyContent: 'center', // Center the Paper horizontally
-              p: 2, // Add some padding around
+                position: 'absolute',
+                bottom: -50, 
+                left: 0, 
+                right: 0, 
+                width: '100%', 
+                display: 'flex',
+                justifyContent: 'center',
+                p: 2, 
                 
             }}>
                 <Paper elevation={6}
@@ -47,7 +41,17 @@ const SearchBar = () => {
                     sx={{
                         width: '50vh' 
                     }}
-                    ></TextField>
+                    InputProps={{
+                        endAdornment: (
+                            <InputAdornment position='start'>
+                                <SearchIcon />
+                            </InputAdornment>
+                        )
+                      }}
+                    label="Location"
+                    >
+                    <SearchIcon/>
+                    </TextField >
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
                         <DatePicker label="Choose Date" 
                         sx={{
@@ -57,9 +61,32 @@ const SearchBar = () => {
                         sx={{
                             width:'20vh'
                         }}/>
-
+                        <ThemeProvider theme={buttonTheme}>
+                            <Button variant="contained"
+                            sx={{
+                                width:'12vh'
+                            }}>Search</Button>
+                        </ThemeProvider>
                     </LocalizationProvider>
                 </Paper>
+            </Box>
+            <Box
+            sx={{
+                position: 'absolute',
+                bottom: -100, 
+                left: -60, 
+                right: 0, 
+                width: '60%', 
+                display: 'flex',
+                justifyContent: 'center',
+                p: 2, 
+                '& > :not(style)': { m: .3},
+            }}>
+                <ThemeProvider theme={buttonTheme}>
+                    <Button variant="contained" color='primary' >Groomers</Button>
+                    <Button variant="contained" color='primary' >Vets</Button>
+                    <Button variant="contained" color='primary' >Doggy Daycares</Button>
+                </ThemeProvider>
             </Box>
         </>
     );

@@ -4,7 +4,8 @@ const colours = {
     complimentary_brown: "#A58671",
     light_teal: "#57F1FA",
     darker_blue: "#4F939E",
-    white: "#FFFFFF"
+    white: "#FFFFFF",
+    orange: "#FA6800"
   };
   
   export default colours;
